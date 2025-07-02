@@ -1,0 +1,210 @@
+:root {
+  --navbar-bg: black;
+  --navbar-text: white;
+  --navbar-hover-bg: #ff5722;
+  --navbar-dropdown-bg: white;
+  --navbar-dropdown-text: #333;
+  --navbar-auth-bg: white;
+  --navbar-auth-text: #ff7043;
+  --navbar-auth-hover-bg: #ff5722;
+  --navbar-auth-hover-text: white;
+
+  --navbar-bg-light: white;
+  --navbar-text-light: black;
+  --navbar-hover-bg-light: #ff7043;
+  --navbar-dropdown-bg-light: #f9f9f9;
+  --navbar-dropdown-text-light: #000;
+  --navbar-auth-bg-light: #ff7043;
+  --navbar-auth-text-light: white;
+  --navbar-auth-hover-bg-light: black;
+  --navbar-auth-hover-text-light: white;
+}
+
+[data-theme="dark"] {
+  --navbar-bg: black;
+  --navbar-text: white;
+  --navbar-hover-bg: #ff5722;
+  --navbar-dropdown-bg: white;
+  --navbar-dropdown-text: #333;
+  --navbar-auth-bg: white;
+  --navbar-auth-text: #ff7043;
+  --navbar-auth-hover-bg: #ff5722;
+  --navbar-auth-hover-text: white;
+}
+
+[data-theme="light"] {
+  --navbar-bg: var(--navbar-bg-light);
+  --navbar-text: var(--navbar-text-light);
+  --navbar-hover-bg: var(--navbar-hover-bg-light);
+  --navbar-dropdown-bg: var(--navbar-dropdown-bg-light);
+  --navbar-dropdown-text: var(--navbar-dropdown-text-light);
+  --navbar-auth-bg: var(--navbar-auth-bg-light);
+  --navbar-auth-text: var(--navbar-auth-text-light);
+  --navbar-auth-hover-bg: var(--navbar-auth-hover-bg-light);
+  --navbar-auth-hover-text: var(--navbar-auth-hover-text-light);
+}
+
+.navbar {
+  padding: 10px 0;
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  margin: 0;
+  top: 0;
+  width: 100%;
+  height: 100px;
+  position: fixed;
+  right: 0;
+  z-index: 999;
+  background-color: #fed8b1;
+}
+
+.logo {
+  width: 150px;
+  height: 150px;
+  padding: 3px;
+}
+
+.navbar-menu {
+  display: flex;
+  gap: 20px;
+  color: #6f4e37;
+  font-size: 19px;
+}
+
+.navbar-right {
+  display: flex;
+  align-items: center;
+  gap: 40px;
+}
+
+.navbar button {
+  background: transparent;
+  font-size: 19px;
+  color: #6f4e37;
+  border: 1px solid rgb(52, 39, 36) o;
+  padding: 10px 30px;
+  border-radius: 50px;
+  cursor: pointer;
+  transition: 0.3s;
+}
+
+.navbar button:hover {
+  background-color: #ecdedc;
+}
+
+.navbar .active {
+  padding-bottom: 2px;
+  border-bottom: 2px solid #6f4e37;
+  list-style: none;
+}
+
+.navbar-menu a,
+.navbar-menu .active {
+  text-decoration: none;
+  color: var(--navbar-text);
+  font-size: 16px;
+  padding: 8px 12px;
+  border-radius: 5px;
+  transition: background-color 0.3s ease;
+}
+
+.navbar-menu a:hover {
+  background-color: var(--navbar-hover-bg);
+}
+
+.navbar-right {
+  display: flex;
+  align-items: center;
+  gap: 20px;
+}
+
+.navbar-profile img {
+  width: 30px;
+  cursor: pointer;
+}
+
+.navbar-search-icon {
+  position: relative;
+}
+
+.navbar-search-icon .dot {
+  position: absolute;
+  min-width: 10px;
+  min-height: 10px;
+  background-color: rgb(243, 237, 236);
+  border-radius: 5px;
+  top: -8px;
+  right: -8px;
+}
+
+.navbar-profile {
+  position: relative;
+}
+
+.nav-profile-dropdown {
+  position: absolute;
+  display: none;
+  right: 0;
+  z-index: 1;
+}
+
+.navbar-profile:hover .nav-profile-dropdown {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  background-color: #fff2ef;
+  padding: 12px 25px;
+  border-radius: 4px;
+  border: 1px solid rgb(255, 38, 0);
+  outline: 2px;
+  list-style: none;
+}
+
+.nav-profile-dropdown li {
+  margin: 5px 0;
+  cursor: pointer;
+}
+
+.nav-profile-dropdown li:hover {
+  color: rgb(255, 38, 0);
+}
+
+.auth-button:hover {
+  background: var(--navbar-auth-hover-bg);
+  color: var(--navbar-auth-hover-text);
+}
+
+.menu-toggle {
+  background: none;
+  border: none;
+  font-size: 24px;
+  color: var(--navbar-text);
+  display: none;
+  cursor: pointer;
+}
+
+.navbar-menu.open {
+  flex-direction: column;
+  background: var(--navbar-hover-bg);
+  position: absolute;
+  top: 100px;
+  right: 10px;
+  border-radius: 8px;
+  padding: 10px 20px;
+  display: none;
+}
+
+@media (max-width: 768px) {
+  .navbar-menu {
+    display: none;
+  }
+
+  .menu-toggle {
+    display: block;
+  }
+
+  .navbar-menu.open {
+    display: flex;
+  }
+}

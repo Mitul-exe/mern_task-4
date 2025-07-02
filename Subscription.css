@@ -1,0 +1,323 @@
+:root {
+  --gradient-light: linear-gradient(135deg, #ff7043 0%, #e7890e 100%);
+  --gradient-dark: linear-gradient(135deg, #000000 0%, #212121 100%);
+  --glass-light: rgba(255, 255, 255, 0.15);
+  --glass-dark: rgba(0, 0, 0, 0.2);
+  --text-light: #000000;
+  --text-dark: #ffffff;
+  --shadow: 0 8px 32px rgba(0, 0, 0, 0.15);
+  --card-height: 550px;
+}
+
+body {
+  margin: 0;
+  font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+}
+
+@media (prefers-color-scheme: dark) {
+  .subscription-container {
+    background: var(--gradient-dark);
+  }
+  
+  .subscription-card {
+    background: var(--glass-dark);
+    border: 1px solid rgba(246, 107, 7, 0.892);
+  }
+  
+  .subscription-card, .modal-content {
+    color: var(--text-dark);
+  }
+}
+
+@media (prefers-color-scheme: light) {
+  .subscription-container {
+    background: var(--gradient-light);
+  }
+  
+  .subscription-card {
+    background: var(--glass-light);
+    border: 1px solid rgba(255, 255, 255, 0.2);
+  }
+  
+  .subscription-card, .modal-content {
+    color: var(--text-light);
+  }
+}
+
+.subscription-container {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(350px, 1fr)); /* Increased min-width to 350px for larger cards */
+  gap: 3rem; /* Increased gap between the cards */
+  padding: 8rem 3rem; /* Increased padding for more space around the container */
+  min-height: 100vh;
+  margin-top: 150px; /* Increased space from the top */
+  perspective: 1000px;
+}
+
+.subscription-card {
+  position: relative;
+  height: auto; /* Adjusted to auto so the cards resize dynamically */
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  border-radius: 24px;
+  padding: 2.5rem;
+  transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+  animation: cardEntrance 0.8s cubic-bezier(0.215, 0.61, 0.355, 1) backwards;
+  box-shadow: var(--shadow);
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+
+
+.subscription-card:hover {
+  transform: translateY(-15px) rotateX(2deg);
+  box-shadow: 0 20px 40px rgba(0, 0, 0, 0.2);
+}
+
+@keyframes cardEntrance {
+  from {
+    opacity: 0;
+    transform: translateY(40px) scale(0.9);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0) scale(1);
+  }
+}
+
+.card-content {
+  display: flex;
+  flex-direction: column;
+  gap: 2rem;
+  height: 100%;
+}
+
+.subscription-card h3 {
+  font-size: 2.5rem;
+  font-weight: 800;
+  text-align: center;
+  margin: 0;
+  background: linear-gradient(135deg, currentColor 0%, rgba(255,255,255,0.8) 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  animation: titleFade 1s ease backwards;
+}
+
+@keyframes titleFade {
+  from {
+    opacity: 0;
+    transform: translateY(-20px);
+  }
+}
+
+.price-container {
+  text-align: center;
+  position: relative;
+  padding: 1rem 0;
+}
+
+.price {
+  font-size: 4rem;
+  font-weight: 800;
+  line-height: 1;
+  display: inline-block;
+  animation: priceScale 0.5s cubic-bezier(0.175, 0.885, 0.32, 1.275) backwards;
+  animation-delay: 0.2s;
+}
+
+@keyframes priceScale {
+  from {
+    transform: scale(0.8);
+    opacity: 0;
+  }
+}
+
+.period {
+  display: block;
+  font-size: 1.1rem;
+  opacity: 0.9;
+  margin-top: 0.5rem;
+  font-weight: 500;
+}
+
+.benefits-list {
+  list-style: none;
+  padding: 0;
+  margin: 1.5rem 0;
+}
+
+.benefits-list li {
+  padding: 0.8rem 0;
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  opacity: 0;
+  animation: benefitSlide 0.5s ease forwards;
+}
+
+.benefits-list li:nth-child(1) { animation-delay: 0.3s; }
+.benefits-list li:nth-child(2) { animation-delay: 0.4s; }
+.benefits-list li:nth-child(3) { animation-delay: 0.5s; }
+.benefits-list li:nth-child(4) { animation-delay: 0.6s; }
+
+@keyframes benefitSlide {
+  from {
+    opacity: 0;
+    transform: translateX(-20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+
+.benefits-list li::before {
+  content: "→";
+  font-weight: bold;
+  font-size: 1.2rem;
+  display: inline-block;
+  transform: translateX(0);
+  transition: transform 0.3s ease;
+}
+
+.benefits-list li:hover::before {
+  transform: translateX(5px);
+}
+
+.subscribe-button {
+  width: 100%;
+  padding: 1.2rem;
+  border: none;
+  border-radius: 12px;
+  background: linear-gradient(135deg, rgba(255,255,255,0.2) 0%, rgba(255,255,255,0.1) 100%);
+  color: inherit;
+  font-weight: 600;
+  font-size: 1.1rem;
+  cursor: pointer;
+  transition: all 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+  backdrop-filter: blur(5px);
+  border: 1px solid rgba(255,255,255,0.1);
+}
+
+.subscribe-button:hover {
+  transform: translateY(-2px) scale(1.02);
+  background: linear-gradient(135deg, rgba(255,255,255,0.25) 0%, rgba(255,255,255,0.15) 100%);
+  box-shadow: 0 10px 20px rgba(0,0,0,0.1);
+}
+
+.subscribe-button:active {
+  transform: translateY(0) scale(0.98);
+}
+
+.modal-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: rgba(0, 0, 0, 0.7);
+  backdrop-filter: blur(8px);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 1000;
+  animation: overlayFade 0.3s ease;
+}
+
+@keyframes overlayFade {
+  from { backdrop-filter: blur(0); }
+  to { backdrop-filter: blur(8px); }
+}
+
+.modal-content {
+  width: 90%;
+  max-width: 500px;
+  background: var(--gradient-light);
+  border-radius: 24px;
+  padding: 2.5rem;
+  position: relative;
+  animation: modalPop 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+  box-shadow: 0 25px 50px rgba(0,0,0,0.25);
+}
+
+@keyframes modalPop {
+  from {
+    transform: scale(0.9);
+    opacity: 0;
+  }
+  to {
+    transform: scale(1);
+    opacity: 1;
+  }
+}
+
+.modal-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 2.5rem;
+}
+
+.close-button {
+  width: 36px;
+  height: 36px;
+  border: none;
+  border-radius: 50%;
+  background: rgba(255,255,255,0.1);
+  color: inherit;
+  font-size: 1.5rem;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.close-button:hover {
+  background: rgba(255,255,255,0.2);
+  transform: rotate(90deg);
+}
+
+.success-message {
+  padding: 1.2rem;
+  background: rgba(46, 213, 115, 0.15);
+  border-radius: 12px;
+  text-align: center;
+  animation: successPop 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+  border: 1px solid rgba(46, 213, 115, 0.3);
+}
+
+@keyframes successPop {
+  from {
+    transform: scale(0.9);
+    opacity: 0;
+  }
+  to {
+    transform: scale(1);
+    opacity: 1;
+  }
+}
+
+@media (max-width: 768px) {
+  .subscription-container {
+    padding: 3rem 1rem;
+    margin-top: 50px;
+    gap: 1.5rem;
+  }
+
+  .subscription-card {
+    padding: 2rem;
+    height: auto;
+    min-height: 500px;
+  }
+
+  .price {
+    font-size: 3rem;
+  }
+
+  .modal-content {
+    padding: 1.5rem;
+    margin: 1rem;
+  }
+}

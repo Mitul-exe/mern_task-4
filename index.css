@@ -1,0 +1,116 @@
+@import url("https://fonts.googleapis.com/css2?family=Outfit:wght@100..900&display=swap");
+
+* {
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
+  font-family: Outfit;
+  scroll-behavior: smooth;
+}
+
+body {
+  min-height: 100vh;
+  padding-top: 110px;
+  background-image: url("https://www.transparenttextures.com/patterns/food.png");
+}
+/* Style the scrollbar container */
+::-webkit-scrollbar {
+  width: 12px; /* Width of the scrollbar */
+  height: 12px; /* Height for horizontal scrollbar */
+}
+
+/* Style the scrollbar track (background of the scrollbar) */
+::-webkit-scrollbar-track {
+  background: #2d2d2d; /* Dark background */
+  border-radius: 10px;
+}
+
+/* Style the scrollbar thumb (the draggable part) */
+::-webkit-scrollbar-thumb {
+  background: linear-gradient(180deg, #fed8b1, #f7c7a1); /* Gradient using shades of fed8b1 */
+  border-radius: 10px; /* Rounded corners */
+  border: 3px solid #1a1a1a; /* Border around the thumb */
+}
+
+/* Hover effect for the thumb */
+::-webkit-scrollbar-thumb:hover {
+  background: linear-gradient(180deg, #f7c7a1, #f1b28c); /* Lighter gradient on hover */
+}
+
+/* Optional: Style for the scrollbar corner */
+::-webkit-scrollbar-corner {
+  background: #2d2d2d; /* Dark background for corner */
+}
+
+/* Style for horizontal scrollbar */
+::-webkit-scrollbar-horizontal {
+  height: 12px; /* Height for horizontal scrollbar */
+}
+
+::-webkit-scrollbar-thumb-horizontal {
+  background: linear-gradient(90deg, #fed8b1, #f7c7a1); /* Horizontal gradient */
+  border-radius: 10px;
+}
+
+::-webkit-scrollbar-thumb-horizontal:hover {
+  background: linear-gradient(90deg, #f7c7a1, #f1b28c);
+}
+
+
+a {
+  text-decoration: none;
+  color: inherit;
+}
+
+.app {
+  width: 90%;
+  margin: 0 auto;
+  padding: 20px;
+}
+@media (max-width:450px) {
+  .app{
+  width:auto;
+  padding: 20px 10px;
+  }
+}
+
+@keyframes fadeIn {
+  0% {
+    opacity: 0;
+  }
+  100% {
+    opacity: 1;
+  }
+}
+
+#scrollBtn {
+  width: 60px; /* Set width */
+  height: 60px; /* Set height equal to width for a perfect circle */
+  background-color: #007bff; /* Background color */
+  color: #ffffff; /* Icon color */
+  border: none; /* Remove borders */
+  border-radius: 50%; /* Make it circular */
+  position: fixed;
+  bottom: 20px; /* Position from the bottom */
+  right: 20px; /* Position from the right */
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1); /* Optional shadow for better styling */
+  cursor: pointer;
+  z-index: 1000; /* Ensure it stays on top */
+  opacity: 0; /* Start as invisible */
+  visibility: hidden; /* Start as hidden */
+  transition: opacity 0.3s, visibility 0.3s, transform 0.2s, background-color 0.2s; /* Smooth transitions */
+}
+
+#scrollBtn:hover {
+  background-color: #0056b3; /* Darker shade on hover */
+  transform: scale(1.1); /* Slightly enlarge the button on hover */
+  box-shadow: 0 6px 8px rgba(0, 0, 0, 0.2); /* Enhance shadow on hover */
+}
+
+#scrollBtn.show {
+  opacity: 1; /* Make visible */
+  visibility: visible; /* Make visible */
+}

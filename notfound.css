@@ -1,0 +1,47 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+.notfound-page {
+  width: 100%;
+  height: 100vh;
+  margin-top: -110px;
+  background-color: black;
+  color: white;
+  position: relative;
+  overflow: hidden;
+}
+
+.notfound-page .video-component {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  overflow: hidden;
+}
+
+.notfound-page .video-component video {
+  width: 100%;
+  height: 100%;
+  position: absolute;
+  top: 0;
+  left: 0;
+}
+
+.notfound-page .content {
+  width: 40rem;
+  padding: 40px 20px;
+  position: absolute;
+  left: 25%;
+  bottom: 0;
+  z-index: 1;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+  color: white;
+}

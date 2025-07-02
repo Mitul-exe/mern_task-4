@@ -1,0 +1,102 @@
+.header {
+  height: 33vw;
+  margin: 30px auto;
+  background: url("/public/header_img.png") no-repeat;
+  background-size: cover;
+  position: relative;
+  border-radius: 7px;
+  box-shadow: rgba(100, 100, 111, 0.2) 0px 7px 29px 0px;
+}
+
+.header-content {
+  color: white;
+  position: absolute;
+  display: flex;
+  flex-direction: column;
+  align-items: start;
+  gap: 1.5vw;
+  max-width: 55%;
+  bottom: 10%;
+  left: 6vw;
+  animation: fadeIn 3s ease-in-out;
+}
+
+.header-title {
+  font-weight: 500;
+  color: #fff; /* White text for better contrast */
+  font-size: max(4.5vw, 22px);
+  text-shadow: 2px 2px 5px rgba(0, 0, 0, 0.7); /* Adding a shadow for readability */
+}
+
+.header-content span {
+  color: rgb(241, 39, 39);
+  font-size: 60px;
+  animation: glow 1.5s ease-in-out infinite alternate;
+}
+
+@keyframes glow {
+  from {
+    text-shadow: 0 0 10px #fff, 0 0 20px #fff, 0 0 30px #fff, 0 0 40px #fff, 0 0 50px #fff, 0 0 60px #fff, 0 0 70px #fff;
+  }
+  to {
+    text-shadow: 0 0 20px #fff, 0 0 30px #ffa94dbf, 0 0 40px #ffa94dbf, 0 0 50px #ffa94dbf, 0 0 60px #ffa94dbf, 0 0 70px #ffa94dbf, 0 0 80px #ffa94dbf;
+  }
+}
+
+.header-content span{
+  color: rgb(241, 39, 39);
+  font-size: 60px;
+  animation: glow 1.5s ease-in-out infinite alternate;
+}
+@keyframes glow {
+  from {
+    text-shadow: 0 0 10px #fff, 0 0 20px #fff, 0 0 30px #fff, 0 0 40px #fff, 0 0 50px #fff, 0 0 60px #fff, 0 0 70px #fff;
+  }
+  
+  to {
+    text-shadow: 0 0 20px #fff, 0 0 30px #ffa94dbf, 0 0 40px #ffa94dbf, 0 0 50px #ffa94dbf, 0 0 60px #ffa94dbf, 0 0 70px #ffa94dbf, 0 0 80px #ffa94dbf;
+  }
+}
+
+.header-content h2 {
+
+  font-weight: 500;
+  color: #fff; /* White text for better contrast */
+  font-size: max(4.5vw, 22px);
+  text-shadow: 2px 2px 5px rgba(0, 0, 0, 0.7); /* Adding a shadow for readability */
+}
+
+.header-description {
+  color: #fff;
+  font-weight: 500;
+  font-size: 1.3vw;
+  text-shadow: 2px 2px 5px rgba(0, 0, 0, 0.7);
+  opacity: 0; /* Initially hidden for animation */
+  animation: fadeIn 2s 1.5s forwards; /* Delayed fade-in for description */
+}
+
+@media (max-width: 1050px) {
+  .header-content {
+    max-width: 45%;
+  }
+}
+
+@media (max-width: 750px) {
+  .header-content {
+    max-width: 65%;
+  }
+  .header-content p {
+    display: none;
+  }
+}
+
+@keyframes fadeIn {
+  0% {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  100% {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
