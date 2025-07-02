@@ -1,0 +1,196 @@
+:root {
+  --background-light: #fff;
+  --background-dark: #2c2c2c;
+  --primary-light: #3498db;
+  --primary-dark: #2980b9;
+  --text-light: #333;
+  --text-dark: #fff;
+  --border-light: #ddd;
+  --border-dark: #555;
+  --input-background-light: #f9f9f9;
+  --input-background-dark: #444;
+  --button-background-light: #3498db;
+  --button-background-dark: #2980b9;
+  --button-hover-light: #2980b9;
+  --button-hover-dark: #1c6ea4;
+}
+
+body {
+  font-family: 'Arial', sans-serif;
+  background-color: var(--background-light);
+  color: var(--text-light);
+  transition: background-color 0.3s ease, color 0.3s ease;
+}
+
+body.dark-mode {
+  background-color: var(--background-dark);
+  color: var(--text-dark);
+}
+
+.add {
+  width: 80%;
+  margin: 40px auto;
+  background-color: var(--background-light);
+  padding: 30px;
+  border-radius: 10px;
+  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+  transition: background-color 0.3s ease;
+}
+
+.add.dark-mode {
+  background-color: var(--background-dark);
+  box-shadow: 0 5px 15px rgba(255, 255, 255, 0.1);
+}
+
+.add form {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+
+.add-img-upload {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  border: 2px dashed var(--primary-light);
+  border-radius: 10px;
+  padding: 20px;
+  text-align: center;
+  transition: all 0.3s ease;
+}
+
+.add-img-upload:hover {
+  background-color: var(--input-background-light);
+}
+
+.add-img-upload.dark-mode:hover {
+  background-color: var(--input-background-dark);
+}
+
+.add-img-upload label {
+  cursor: pointer;
+  display: inline-block;
+  width: 120px;
+  height: 120px;
+  background-size: cover;
+  background-position: center;
+  border-radius: 50%;
+  border: 2px solid var(--border-light);
+  background-color: var(--input-background-light);
+  margin-bottom: 10px;
+}
+
+.add-img-upload.dark-mode label {
+  border-color: var(--border-dark);
+  background-color: var(--input-background-dark);
+}
+
+.add-product-name,
+.add-product-desc,
+.add-category-price,
+.add-price {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.add-product-name input,
+.add-product-desc textarea,
+.add-category-price select,
+.add-price input {
+  padding: 12px;
+  border-radius: 8px;
+  border: 1px solid var(--border-light);
+  font-size: 16px;
+  background-color: var(--input-background-light);
+  transition: border-color 0.3s ease, background-color 0.3s ease;
+}
+
+.add-product-name input:focus,
+.add-product-desc textarea:focus,
+.add-category-price select:focus,
+.add-price input:focus {
+  outline: none;
+  border-color: var(--primary-light);
+}
+
+.add-product-name.dark-mode input,
+.add-product-desc.dark-mode textarea,
+.add-category-price.dark-mode select,
+.add-price.dark-mode input {
+  background-color: var(--input-background-dark);
+  border-color: var(--border-dark);
+}
+
+.add-btn {
+  padding: 12px;
+  background-color: var(--button-background-light);
+  color: var(--text-light);
+  font-size: 16px;
+  border-radius: 8px;
+  border: none;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+.add-btn:hover {
+  background-color: var(--button-hover-light);
+}
+
+.add-btn.dark-mode {
+  background-color: var(--button-background-dark);
+  color: var(--text-dark);
+}
+
+.add-btn.dark-mode:hover {
+  background-color: var(--button-hover-dark);
+}
+
+.loader-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: rgba(0, 0, 0, 0.5);
+  z-index: 1000;
+}
+
+@media (max-width: 768px) {
+  .add {
+    width: 95%;
+  }
+
+  .add-category-price {
+    flex-direction: column;
+  }
+
+  .add-btn {
+    width: 100%;
+  }
+}
+
+body.dark .add {
+  background-color: var(--background-dark);
+}
+
+body.dark .add-img-upload {
+  border-color: var(--primary-dark);
+}
+
+body.dark .add-img-upload label {
+  border-color: var(--border-dark);
+  background-color: var(--input-background-dark);
+}
+
+body.dark .add-btn {
+  background-color: var(--button-background-dark);
+}
+
+body.dark .add-btn:hover {
+  background-color: var(--button-hover-dark);
+}

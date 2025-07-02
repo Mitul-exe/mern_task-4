@@ -1,0 +1,59 @@
+/* Default Light Theme Styles */
+.navbar {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 8px 4%;
+  background-color: white;
+  color: #131313;
+  transition: all 0.3s ease-in-out;
+}
+
+.navbar .logo {
+  width: max(10%, 80px);
+  filter: invert(1);
+}
+
+.navbar .profile {
+  width: 40px;
+}
+
+.theme-toggle-btn {
+  font-size: 20px;
+  background: none;
+  border: none;
+  cursor: pointer;
+  transition: color 0.3s ease;
+}
+
+.theme-toggle-btn:focus {
+  outline: none;
+}
+
+.navbar.dark {
+  background-color: #131313;
+  color: white;
+}
+
+.navbar.dark .theme-toggle-btn {
+  color: white;
+}
+
+.navbar.dark .logo {
+  filter: none;
+}
+
+.navbar.dark .profile {
+  filter: brightness(0.8);
+}
+
+.navbar .title {
+  font-weight: 600;
+  margin-left: 1rem;
+}
+
+@media screen and (min-width: 768px) {
+  .navbar .title {
+    font-size: 1.5rem
+  }
+}
